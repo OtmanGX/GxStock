@@ -1,0 +1,44 @@
+
+<div class="modal-header text-center">
+  <h4 class="modal-title w-100 font-weight-bold">Ajouter une catégorie</h4>
+  <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="modalRef.hide()">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<form [formGroup]="validatingForm" (ngSubmit)="submit()">
+<div class="modal-body mx-3">
+
+  <div class="md-form mb-5">
+    <input type="text" id="defaultForm-nom" [formControl]="nomForm" class="form-control"
+           mdbInput mdbValidate>
+    <label for="defaultForm-nom">Nom</label>
+    <mdb-error
+      *ngIf="nomForm.invalid && (nomForm.dirty || nomForm.touched)">
+      Entrée invalide
+    </mdb-error>
+    <mdb-success
+      *ngIf="nomForm.valid && (nomForm.dirty || nomForm.touched)">Input
+      valide
+    </mdb-success>
+  </div>
+
+  <div class="md-form mb-4">
+<!--    <mdb-icon fas icon="lock" class="prefix grey-text"></mdb-icon>-->
+    <input type="text" id="defaultForm-pass" [formControl]="descriptionForm" class="form-control"
+           mdbInput mdbValidate>
+    <label for="defaultForm-pass">Description</label>
+    <mdb-error
+      *ngIf="descriptionForm.invalid && (descriptionForm.dirty || descriptionForm.touched)">
+      Entrée invalide
+    </mdb-error>
+    <mdb-success
+      *ngIf="descriptionForm.valid && (descriptionForm.dirty || descriptionForm.touched)">
+      valide
+    </mdb-success>
+  </div>
+
+</div>
+<div class="modal-footer d-flex justify-content-center">
+  <button mdbBtn color="default" class="waves-light"  type="submit" mdbWavesEffect>Valider</button>
+</div>
+</form>

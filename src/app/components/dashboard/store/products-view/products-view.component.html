@@ -1,0 +1,34 @@
+<div class="mt-5 text-right">
+  <a mdbBtn (click)="openModal()" class="text-white" gradient="purple" mdbWavesEffect>
+    <mdb-icon fas size="lg" icon="plus"></mdb-icon>
+  </a>
+</div>
+<mdb-card class="mb-2" *ngFor="let prod of (products$|async)">
+  <mdb-card-body>
+    <mdb-card-title>
+      <h5 class="font-weight-bold mb-3">{{prod.nom}}</h5>
+    </mdb-card-title>
+    <mdb-card-text class="mb-0">{{prod.description}}</mdb-card-text>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">Quantité: {{prod.qte}}{{prod.unit}}</li>
+      <li class="list-group-item">date d'ajout: {{prod.date.toDate() | date}}</li>
+    </ul>
+    <div class="flex-row">
+      <a (click)="openModal(prod)" mdbTooltip="Modifier">
+        <mdb-icon  class="text-warning" size="lg" fas icon="edit"></mdb-icon>
+      </a>
+      <a (click)="openDeleteModal(prod.id)" mdbTooltip="Supprimer">
+        <mdb-icon class="text-danger" size="lg" fas icon="trash"></mdb-icon>
+      </a>
+
+      <a mdbTooltip="Ajouter">
+        <mdb-icon class="text-success" size="lg" fas icon="plus"></mdb-icon>
+      </a>
+
+      <a mdbTooltip="Minimiser">
+        <mdb-icon size="lg" fas icon="minus"></mdb-icon>
+      </a>
+    </div>
+  </mdb-card-body>
+
+</mdb-card>

@@ -1,0 +1,18 @@
+<div class="pt-3 pb-2 mb-3 border-bottom">
+  <h1 class="h2">Profile d'utlisateur</h1>
+</div>
+<!-- Show user data when logged in -->
+<div class="row" *ngIf="authService.userData as user">
+  <div class="col-md-12">
+    <div class="media">
+      <img class="align-self-start mr-5 img-thumbnail rounded-circle" src="{{(user.photoURL) ? user.photoURL : '/assets/dummy-user.png'}}"
+           alt="{{user.displayName}}">
+      <div class="media-body">
+        <h1>Bonjour: <strong>{{(user.displayName) ? user.displayName : 'Utilisateur'}}</strong></h1>
+        <p>ID d'utlisateur: <strong>{{user.uid}}</strong></p>
+        <p>E-mail: <strong>{{user.email}}</strong></p>
+        <!--                <p>Email Verified: <strong>{{user.emailVerified}}</strong></p>-->
+      </div>
+    </div>
+  </div>
+</div>
